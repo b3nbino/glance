@@ -1,4 +1,8 @@
+//Import packages
 const express = require("express");
+const morgan = require("morgan");
+
+//App set-up
 const app = express();
 const HOST = "localhost";
 const PORT = "5005";
@@ -10,6 +14,7 @@ app.set("views", "views");
 //Middlewear
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(morgan("common"));
 
 //Initial redirect
 app.get("/", (req, res) => {
