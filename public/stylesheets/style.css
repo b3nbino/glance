@@ -60,12 +60,18 @@ button:hover {
 }
 
 /* Middle part */
+button.reply {
+  width: 15%;
+  padding: 10px;
+  font-size: 12px;
+}
+
 section.content {
   width: 50%;
   display: flex;
   flex-direction: column;
-  border-left: 1px solid #6b7074;
-  border-right: 1px solid #6b7074;
+  border-left: 1px solid #474a4c;
+  border-right: 1px solid #474a4c;
 }
 
 .post,
@@ -73,7 +79,7 @@ section.content {
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  border-bottom: 1px solid #6b7074;
+  border-bottom: 1px solid #474a4c;
 }
 
 .post .username,
@@ -125,7 +131,6 @@ form button {
 section.topics {
   box-sizing: border-box;
   padding: 20px;
-  border-left: 1px solid #6b7074;
   width: 25%;
 }
 

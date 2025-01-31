@@ -14,6 +14,8 @@ block content
       .post-content
         each line in currPost.content.split("\n")
             p #{line}
+      a(href=`/post/comment/${currPost.id}`) 
+        button.reply 🗬 Reply
     each comment in currPostComments
       .comment
         h3.username #{comment.username}
