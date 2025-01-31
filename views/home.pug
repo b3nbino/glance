@@ -1,4 +1,12 @@
 extends layout
 
 block content 
-  p For you
+  section.content
+    each post in posts 
+      .post
+        h3.username #{post.username}
+        p.date #{post.date_created}
+        .post-content
+          each line in post.content.split("\n")
+              p #{line}
+      

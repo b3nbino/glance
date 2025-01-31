@@ -1,0 +1,8 @@
+extends layout 
+
+block content
+  section.content
+    form(action="/create/post" method="post")
+      label(for="message") What's up?
+      input(type="textarea" name="message")
+      button Send it.

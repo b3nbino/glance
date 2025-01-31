@@ -3,27 +3,25 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/stylesheets/style.css")
     title Glance
   body 
+    .space
     nav
       ul
         li 
           a(href="/home") Home
         li 
-          a(href="/notifications") Notifications
-        li 
-          a(href="/messages") Messages
-        li 
           a(href="/profile") Profile
-      a(href="/create-post") post
+      a(href="/post")
+        button Post
     block content  
-      section.content 
-        p Hello there
     section.topics
-      h1 Hot Posts
-      ul 
-        li Post 1
-        li Post 2
-        li Post 3
-        li Post 4
-        li Post 5
+      .hot
+        h1 Hot Posts
+        ul 
+          li Post 1
+          li Post 2
+          li Post 3
+          li Post 4
+          li Post 5
