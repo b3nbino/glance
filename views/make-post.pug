@@ -2,7 +2,14 @@ extends layout
 
 block content
   section.content
+    - let kinds = Object.keys(flash || {});
+        if kinds.length > 0
+          ul.ulFlash
+            each kind in kinds
+              each message in flash[kind]
+                li.flash(class=kind)= message
+                
     form(action="/create/post" method="post")
-      label(for="message") What's up?
-      input(type="textarea" name="message")
+      label(for="postContent") Make a post:
+        textarea(type="textarea" name="postContent" id="postContent") #{postContent}
       button Send it.

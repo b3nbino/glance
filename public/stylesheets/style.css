@@ -87,7 +87,7 @@ form label {
   margin: 10px;
 }
 
-form input {
+form textarea {
   box-sizing: border-box;
   margin: 10px;
   display: block;
@@ -127,4 +127,21 @@ section.topics ul li {
 
 .space {
   width: 25%;
+}
+
+.flash {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+.ulFlash {
+  width: 80%;
+  margin: auto;
+  border: 0;
+  padding: 0;
+  background-color: red;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 15px;
 }

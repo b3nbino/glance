@@ -15,7 +15,15 @@ html(lang="en")
           a(href="/profile") Profile
       a(href="/post")
         button Post
-    block content  
+
+    block content
+      - let kinds = Object.keys(flash || {});
+          if kinds.length > 0
+            ul.ulFlash
+              each kind in kinds
+                each message in flash[kind]
+                  li.flash(class=kind)= message
+
     section.topics
       .hot
         h1 Hot Posts
