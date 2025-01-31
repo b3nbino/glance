@@ -8,13 +8,14 @@ html(lang="en")
   body 
     .space
     nav
+      img(src="/images/glance_logo.jpg", alt="Glance")
       ul
         li 
-          a(href="/home") Home
+          a(href="/home") 🏠 Home
         li 
-          a(href="/profile") Profile
+          a(href="/profile") 👤 Profile
       a(href="/post")
-        button Post
+        button ✏️ Post
 
     block content
       - let kinds = Object.keys(flash || {});

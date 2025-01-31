@@ -2,11 +2,18 @@ extends layout
 
 block content 
   section.content
+    - let kinds = Object.keys(flash || {});
+          if kinds.length > 0
+            ul.ulFlash
+              each kind in kinds
+                each message in flash[kind]
+                  li.flash(class=kind)= message
     each post in posts 
-      .post
-        h3.username #{post.username}
-        p.date #{post.date_created}
-        .post-content
-          each line in post.content.split("\n")
-              p #{line}
+      a(href=`/view/post/${post.id}`) 
+        .post
+          h3.username #{post.username}
+          p.date #{post.date_created}
+          .post-content
+            each line in post.content.split("\n")
+                p #{line}
       

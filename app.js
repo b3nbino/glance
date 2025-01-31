@@ -46,6 +46,14 @@ app.use((req, res, next) => {
   next();
 });
 
+//Preserve session info
+app.use((req, res, next) => {
+  //Make flash message persist
+  res.locals.flash = req.session.flash;
+  delete req.session.flash;
+  next();
+});
+
 function formatPosts(posts) {
   if (posts.length === 0) {
     posts = false;
@@ -103,8 +111,11 @@ app.post(
         throw new Error("Post not created");
       }
 
+      //Add success message to flash
+      req.flash("success", "Post created!");
       res.redirect("/home");
     } else {
+      //Add error messages to flash
       errors.array().forEach((err) => req.flash("error", err.msg));
 
       res.render("make-post", {

@@ -5,7 +5,7 @@ CREATE TABLE users(
 
 CREATE TABLE posts(
   id serial PRIMARY KEY,
-  content text NOT NULL,
+  content varchar(257) NOT NULL,
   date_created timestamp DEFAULT CURRENT_TIMESTAMP,
   username text NOT NULL REFERENCES users(username) ON DELETE CASCADE
 );
