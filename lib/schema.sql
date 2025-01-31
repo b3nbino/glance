@@ -13,7 +13,7 @@ CREATE TABLE posts(
 CREATE TABLE comments(
   id serial PRIMARY KEY,
   post_id integer REFERENCES posts(id) ON DELETE CASCADE,
-  comment_text text NOT NULL,
+  comment_text varchar(257) NOT NULL,
   date_created timestamp DEFAULT CURRENT_TIMESTAMP,
   username text NOT NULL REFERENCES users(username) ON DELETE CASCADE
 );

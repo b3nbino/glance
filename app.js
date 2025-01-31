@@ -107,6 +107,21 @@ app.get("/post", async (req, res) => {
   res.render("make-post");
 });
 
+app.get("/post/comment/:postId", async (req, res) => {
+  let postId = req.params.postId;
+  let currPost = await res.locals.store.getPost(postId);
+
+  if (!currPost) {
+    throw new Error("Post not found");
+  }
+
+  formatDate(currPost);
+
+  res.render("make-comment", {
+    currPost,
+  });
+});
+
 //Handles post creation request
 app.post(
   "/create/post",
@@ -139,6 +154,53 @@ app.post(
       res.render("make-post", {
         flash: req.flash(),
         postContent,
+      });
+    }
+  }
+);
+
+app.post(
+  "/create/comment/:postId",
+  [
+    body("commentText")
+      .trim()
+      .isLength({ min: 1 })
+      .withMessage("Reply must have at least 1 character.")
+      .isLength({ max: 256 })
+      .withMessage("Reply cannot have more than 256 characters."),
+  ],
+  async (req, res) => {
+    //Get current post and comment info
+    let postId = req.params.postId;
+    let commentText = req.body.commentText;
+    let currPost = await res.locals.store.getPost(postId);
+
+    if (!currPost) {
+      throw new Error("Post not found.");
+    }
+
+    formatDate(currPost);
+
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      let commentCreated = await res.locals.store.makeComment(
+        commentText,
+        postId
+      );
+
+      if (!commentCreated) {
+        throw new Error("Comment failed.");
+      }
+
+      req.flash("success", "Comment created!");
+      res.redirect(`/view/post/${postId}`);
+    } else {
+      errors.array().forEach((err) => req.flash("error", err.msg));
+
+      res.render("make-comment", {
+        currPost,
+        flash: req.flash(),
       });
     }
   }

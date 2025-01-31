@@ -1,0 +1,20 @@
+extends layout 
+
+block content
+  section.content
+    - let kinds = Object.keys(flash || {});
+          if kinds.length > 0
+            ul.ulFlash
+              each kind in kinds
+                each message in flash[kind]
+                  li.flash(class=kind)= message
+    .post
+      h3.username #{currPost.username}
+      p.date #{currPost.date_created}
+      .post-content
+        each line in currPost.content.split("\n")
+            p #{line}
+                
+    form(action=`/create/comment/${currPost.id}` method="post")
+      textarea(type="textarea" name="commentText" id="commentText" class="reply") #{commentText}
+      button 🗬 Reply
