@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+  section.content 
+    - let kinds = Object.keys(flash || {});
+          if kinds.length > 0
+            ul.ulFlash
+              each kind in kinds
+                each message in flash[kind]
+                  li.flash(class=kind)= message
+    .post
+      h3.username #{currPost.username}
+      p.date #{currPost.date_created}
+      .post-content
+        each line in currPost.content.split("\n")
+            p #{line}
+    each comment in currPostComments
+      .comment
+        h3.username #{comment.username}
+        p.date #{comment.date_created}
+        .comment-content
+          each line in comment.comment_text.split("\n")
+              p #{line}

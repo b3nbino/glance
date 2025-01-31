@@ -81,6 +81,24 @@ app.get("/home", async (req, res) => {
   });
 });
 
+app.get("/view/post/:postId", async (req, res) => {
+  //Get post and comments and format their dates
+  let postId = req.params.postId;
+  let currPost = await res.locals.store.getPost(postId);
+  formatDate(currPost);
+  let currPostComments = (await res.locals.store.getPostComments(postId)) ?? {};
+  currPostComments = formatPosts(currPostComments);
+
+  if (!currPost) {
+    throw new Error("Post not found");
+  }
+
+  res.render("post", {
+    currPost,
+    currPostComments,
+  });
+});
+
 app.get("/profile", async (req, res) => {
   res.render("profile");
 });

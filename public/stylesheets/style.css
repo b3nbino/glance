@@ -68,24 +68,28 @@ section.content {
   border-right: 1px solid #6b7074;
 }
 
-.post {
+.post,
+.comment {
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
   border-bottom: 1px solid #6b7074;
 }
 
-.post .username {
+.post .username,
+.comment .username {
   margin: 5px;
 }
 
-.post .date {
+.post .date,
+.comment .date {
   font-size: 12px;
   color: gray;
   margin: 5px;
 }
 
-.post-content {
+.post-content,
+.comment-content {
   margin: 10px 5px;
 }
 
