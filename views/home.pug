@@ -20,6 +20,9 @@ block content
               p #{line}
         ul.likes
           li
-            form(action=`/like/${post.id}` method="post") 
-              button 🖤 #{post.likes}
-      
+            if post.liked
+              form(action=`/unlike/${post.id}` method="post") 
+                button ❤️ #{post.likes}
+            else 
+              form(action=`/like/${post.id}` method="post") 
+                button 🖤 #{post.likes}

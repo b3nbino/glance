@@ -74,10 +74,25 @@ app.get("/", (req, res) => {
 //Request handling
 app.get("/home", async (req, res) => {
   let posts = await res.locals.store.getRecentPosts();
+
+  if (!posts) {
+    throw new Error("404 Posts not found");
+  }
   posts = formatPosts(posts);
+
+  //Gets users likes and maps them to their post ids
+  let userLikes = await res.locals.store.getLikes();
+  userLikes = userLikes.map((likeObj) => likeObj.post_id);
+
+  posts.forEach((post) => {
+    if (userLikes.includes(post.id)) {
+      post.liked = true;
+    }
+  });
 
   res.render("home", {
     posts,
+    userLikes,
   });
 });
 
@@ -211,6 +226,17 @@ app.post("/like/:postId", async (req, res) => {
   let postLiked = await res.locals.store.likePost(postId);
 
   if (!postLiked) {
+    throw new Error("Failed to like.");
+  }
+
+  res.redirect("/home");
+});
+
+app.post("/unlike/:postId", async (req, res) => {
+  let postId = req.params.postId;
+  let postUnliked = await res.locals.store.unlikePost(postId);
+
+  if (!postUnliked) {
     throw new Error("Failed to like.");
   }
 

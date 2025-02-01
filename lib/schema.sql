@@ -28,3 +28,8 @@ CREATE TABLE posts_tags(
   post_id integer NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
   tag_name text NOT NULL REFERENCES tags(tag_name) ON DELETE CASCADE
 );
+
+CREATE TABLE users_likes(
+  post_id integer NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+  username text NOT NULL REFERENCES users(username) ON DELETE CASCADE
+);
