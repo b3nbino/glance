@@ -9,11 +9,17 @@ block content
                 each message in flash[kind]
                   li.flash(class=kind)= message
     each post in posts 
-      a(href=`/view/post/${post.id}`) 
-        .post
+      .post
+        a(href=`/view/post/${post.id}`) 
           h3.username #{post.username}
+        a(href=`/view/post/${post.id}`) 
           p.date #{post.date_created}
+        a(href=`/view/post/${post.id}`) 
           .post-content
             each line in post.content.split("\n")
-                p #{line}
+              p #{line}
+        ul.likes
+          li
+            form(action=`/like/${post.id}` method="post") 
+              button 🖤 #{post.likes}
       

@@ -206,6 +206,17 @@ app.post(
   }
 );
 
+app.post("/like/:postId", async (req, res) => {
+  let postId = req.params.postId;
+  let postLiked = await res.locals.store.likePost(postId);
+
+  if (!postLiked) {
+    throw new Error("Failed to like.");
+  }
+
+  res.redirect("/home");
+});
+
 //Error handler
 app.use((error, req, res, _next) => {
   console.log(error);

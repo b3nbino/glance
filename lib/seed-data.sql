@@ -1,45 +1,45 @@
-INSERT INTO posts (content, username) VALUES
+INSERT INTO posts (content, username, likes) VALUES
 ('The New York Times just reached out to interview....
 
 My moderator.
 
-Because he plays so much Path of Exile.', 'Atrioc'),
-('more kids should do this i think', 'Atrioc'),
+Because he plays so much Path of Exile.', 'Atrioc', 5),
+('more kids should do this i think', 'Atrioc', 16),
 ('Woke up to a blood red sky over Los Angeles.
 
 Biblical gale force winds. Fires raging. Power outages. End times stuff. 
 
-Ludwig must have got plat', 'Atrioc'),
-('The Pacific Ocean should be called the American Ocean', 'Atrioc'),
-('bro hes turning into him', 'Atrioc'),
-('???????', 'Atrioc'),
-('oops nvm', 'Atrioc'),
+Ludwig must have got plat', 'Atrioc', 0),
+('The Pacific Ocean should be called the American Ocean', 'Atrioc', 12),
+('bro hes turning into him', 'Atrioc', 21),
+('???????', 'Atrioc', 124),
+('oops nvm', 'Atrioc', 4989),
 ('this is your only chance for financial freedom. 
 
 if you miss this chance you will regret it forever.
 
 want a house? this IS how you get one. 
 
-this IS financial advice', 'Atrioc'),
-('checkmate @Ubisoft', 'Atrioc'),
-('Please don''t sue me.', 'Atrioc'),
-('bro squeex got wedged into a dumpster and softlocked the game within 30 minutes', 'Atrioc'),
-('we beat concord this is huge', 'Atrioc'),
-('fell to my knees and wept', 'Atrioc'),
-('As a T1 fan I promise to enjoy this moment for a full three days before angrily demanding them to win a 6th trophy. #t1pride', 'Atrioc'),
-('Room for one more?', 'Atrioc'),
+this IS financial advice', 'Atrioc', 0),
+('checkmate @Ubisoft', 'Atrioc', 1),
+('Please don''t sue me.', 'Atrioc', 15),
+('bro squeex got wedged into a dumpster and softlocked the game within 30 minutes', 'Atrioc', 5),
+('we beat concord this is huge', 'Atrioc', 223),
+('fell to my knees and wept', 'Atrioc', 17),
+('As a T1 fan I promise to enjoy this moment for a full three days before angrily demanding them to win a 6th trophy. #t1pride', 'Atrioc', 1238),
+('Room for one more?', 'Atrioc', 21),
 ('Brandon? Nah. More like Blendin''
 
-The Smoothie King 👑 is back on the job  and he is comfortable on his throne.', 'Atrioc'),
-('never doubted for a second', 'Atrioc'),
-('"i don''t watch anime, drink, watch movies or tv shows I just play league of legends"', 'Atrioc'),
+The Smoothie King 👑 is back on the job  and he is comfortable on his throne.', 'Atrioc', 9999),
+('never doubted for a second', 'Atrioc', 90),
+('"i don''t watch anime, drink, watch movies or tv shows I just play league of legends"', 'Atrioc', 1),
 ('ATRIARCHY LIVE SHOW IN THE BOOKS. SURREAL & WONDERFUL EXPERIENCE. 
 
 People flew out from all over the world to put on a live show of all the parody songs they''ve written for stream over the years. 
 
-NEXT YEAR VEGAS SPHERE.', 'Atrioc'),
-('“Chat, should I cut rates by 25bps or 50bps?”', 'Atrioc'),
-('Joe Biden 2028', 'Atrioc');
+NEXT YEAR VEGAS SPHERE.', 'Atrioc', 2),
+('“Chat, should I cut rates by 25bps or 50bps?”', 'Atrioc', 15),
+('Joe Biden 2028', 'Atrioc', 75);
 
 INSERT INTO comments (post_id, comment_text, username) VALUES
 (21, 'He just needs a few more years of experience then he''ll be good to go!', 'admin'),
@@ -74,8 +74,5 @@ WHO HAS THE LAST LAUGH NOW, SAUSAGE MAN?', 'admin'),
 (11, 'Please don’t cancel my hat order', 'admin'),
 (10, 'I got to the top of the first room and died this game is awful (in the best way possible)', 'admin'),
 (10, 'I’m buying it when I get paid', 'admin'),
-(9, 'Horrible opsec from her team it’s actually hilarious, the bubble map of the deployer is hilarious. Can’t wait to see the zachbxt thread about how this gets laundered or if they don’t even bother. Other celebs didn’t bother at all.
-
-Goat of grifting easy 7 figure rug pull for her.', 'admin'),
 (8, 'Is she setting a new WR for the 5 minutes of fame to rich to financial criminal speed run?', 'admin'),
 (8, 'marketing mondays have lost me SO MUCH MONEY', 'admin');
