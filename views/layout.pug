@@ -16,7 +16,7 @@ html(lang="en")
         li 
           a(href="/profile") 👤 Profile
       a(href="/post")
-        button ✏️ Post
+        button(class="btn-large") ✏️ Post
 
     block content
       - let kinds = Object.keys(flash || {});

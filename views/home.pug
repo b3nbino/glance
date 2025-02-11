@@ -18,11 +18,14 @@ block content
           .post-content
             each line in post.content.split("\n")
               p #{line}
-        ul.likes
+        ul.post-nav
           li
             if post.liked
               form(action=`/unlike/${post.id}` method="post") 
-                button ❤️ #{post.likes}
+                button.btn-small ❤️ #{post.likes}
             else 
               form(action=`/like/${post.id}` method="post") 
-                button 🖤 #{post.likes}
+                button(class="btn-small") 🖤 #{post.likes}
+          li 
+            a(href=`/post/comment/${post.id}`)
+              button(class="btn-small") 🗨️ #{post.comments}

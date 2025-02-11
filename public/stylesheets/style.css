@@ -49,21 +49,6 @@ nav li a:hover {
   color: rgb(205, 205, 205);
 }
 
-button {
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  background-color: white;
-  padding: 15px 0;
-  width: 100%;
-  border: none;
-  border-radius: 40px;
-}
-
-button:hover {
-  background-color: rgb(238, 230, 230);
-}
-
 /* Middle part */
 section.content {
   width: 50%;
@@ -98,27 +83,6 @@ section.content {
   margin: 10px 5px;
 }
 
-section.content ul.likes {
-  margin-top: 10px;
-}
-
-section.content ul.likes li form button {
-  width: auto;
-  margin: 0;
-  background-color: black;
-  font-size: 14px;
-  color: white;
-  padding: 6px 10px;
-}
-
-section.content ul.likes li form button:hover {
-  font-size: 14px;
-  color: rgb(238, 230, 230);
-  background-color: #474a4c;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
 form label {
   font-size: 32px;
   font-weight: bold;
@@ -145,14 +109,16 @@ form textarea.reply {
 }
 
 button.reply {
+  margin-left: 10px;
   width: 15%;
   padding: 10px;
   font-size: 12px;
 }
 
-form button {
-  width: 25%;
-  margin: 10px 10px 0 20px;
+ul.post-nav {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Right part */
@@ -205,4 +171,41 @@ section.topics ul li {
   padding: 0;
   text-align: center;
   margin-top: 15px;
+}
+
+.btn-small {
+  /* width: auto; */
+  margin: 0;
+  background-color: black;
+  font-size: 14px;
+  color: white;
+  padding: 6px 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 40px;
+  margin: 10px 10px 0 20px;
+}
+
+.btn-small:hover {
+  font-size: 14px;
+  color: rgb(238, 230, 230);
+  background-color: #474a4c;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn-large {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 15px 0;
+  width: 70%;
+  border: none;
+  border-radius: 40px;
+}
+
+.btn-large:hover {
+  background-color: rgb(238, 230, 230);
 }

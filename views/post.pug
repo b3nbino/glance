@@ -14,8 +14,17 @@ block content
       .post-content
         each line in currPost.content.split("\n")
             p #{line}
-      a(href=`/post/comment/${currPost.id}`) 
-        button.reply 🗬 Reply
+      ul.post-nav
+          li
+            if currPost.liked
+              form(action=`/unlike/${currPost.id}` method="post") 
+                button.btn-small ❤️ #{currPost.likes}
+            else 
+              form(action=`/like/${currPost.id}` method="post") 
+                button(class="btn-small") 🖤 #{currPost.likes}
+          li 
+            a(href=`/post/comment/${currPost.id}`)
+              button(class="btn-small") 🗨️ #{currPost.comments}
     each comment in currPostComments
       .comment
         h3.username #{comment.username}
