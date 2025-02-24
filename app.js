@@ -101,6 +101,7 @@ app.get("/view/post/:postId", async (req, res) => {
   let postId = req.params.postId;
   let currPost = await res.locals.store.getPost(postId);
   formatDate(currPost);
+  currPost.liked = await res.locals.store.postLiked(postId);
   let currPostComments = (await res.locals.store.getPostComments(postId)) ?? {};
   currPostComments = formatPosts(currPostComments);
 
